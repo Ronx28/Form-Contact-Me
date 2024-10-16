@@ -26,16 +26,16 @@ function Form() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+  
     try {
-      const response = await fetch('http://localhost:3001/send-email', {
+      const response = await fetch('https://form-contact-me.vercel.app/send-email', {  // Ganti dengan URL hosting backend
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
         alert('Email berhasil dikirim!');
         setIsSuccess(true);
@@ -49,6 +49,7 @@ function Form() {
       setIsSubmitting(false);
     }
   };
+  
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-green-50">
